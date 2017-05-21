@@ -22,7 +22,7 @@ def main():
 	# prints a welcome message
 	print("Welcome to Text-Only Settles of Catan")
 	print("How many players are playing?")
-	num_of_players = int(input("--> "))
+	num_of_players = int(eval(input("--> ")))
 	
 	global game
 	game = CatanGame(num_of_players)
@@ -33,16 +33,16 @@ def main():
 		
 			# gets a settlement placement for the player
 			while True:
-				print("{}Player {}{}, choose where you want to build your settlement:".format(
+				print(("{}Player {}{}, choose where you want to build your settlement:".format(
 					player_colors[p],
 					p + 1, 
-					Style.RESET_ALL))
+					Style.RESET_ALL)))
 				
 				print_board(game.board, player_colors)
 				
 				try:
-					r = int(input("Enter the row: ")) - 1
-					i = int(input("Enter the index: ")) - 1
+					r = int(eval(input("Enter the row: "))) - 1
+					i = int(eval(input("Enter the index: "))) - 1
 				
 				except ValueError:
 					print("Please enter numbers")
@@ -60,10 +60,10 @@ def main():
 				con_points = game.board.get_connected_points(r, i)
 				print("Where would you like to build your road to?")
 				for x in range(len(con_points)):
-					print("{}. Row {}, Index {}".format(x + 1, con_points[x][0] + 1, con_points[x][1] + 1))
+					print(("{}. Row {}, Index {}".format(x + 1, con_points[x][0] + 1, con_points[x][1] + 1)))
 					
 				try:
-					choice = int(input("--> ")) - 1
+					choice = int(eval(input("--> "))) - 1
 					
 				except ValueError:
 					print("Please enter an integer value")
@@ -94,9 +94,9 @@ def main():
 			
 			roll = game.get_roll()
 			
-			print("{} rolls a {}".format(player_str, roll))
+			print(("{} rolls a {}".format(player_str, roll)))
 			
-			print("{}, what would you like to do?".format(player_str))
+			print(("{}, what would you like to do?".format(player_str)))
 				
 			print("1 - Build something")
 			print("2 - Offer a trade")

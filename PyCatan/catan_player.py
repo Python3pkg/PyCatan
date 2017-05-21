@@ -418,12 +418,12 @@ class CatanPlayer:
 				card_name = "Ore"
 			
 			else:
-				print("INVALID CARD %s" % c)
+				print(("INVALID CARD %s" % c))
 				continue
 				
 			if cards.index(c) < len(cards) - 1:
 				card_name += ","
 				
-			print("    %s" % card_name)
+			print(("    %s" % card_name))
 		
 		print("]")
